@@ -1,5 +1,5 @@
-
 .idea/modules.xml
 .idea/prettier.xml
 .idea/react-js-training.iml
 .idea/vcs.xml
+node_modules/
