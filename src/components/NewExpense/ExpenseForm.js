@@ -21,10 +21,18 @@ const ExpenseForm = () => {
         });
     };
     const amountChangeHandler = (event) => {
-        setEnteredAmount(event.target.value);
+        // setEnteredAmount(event.target.value);
+        setUserInput({
+            ...userInput,
+            enteredAmount: event.target.value,
+        });
     };
     const dateChangeHandler = (event) => {
-        setEnteredDate(event.target.value);
+        // setEnteredDate(event.target.value);
+        setUserInput({
+            ...userInput,
+            enteredDate: event.target.value,
+        });
     };
 
     return (
