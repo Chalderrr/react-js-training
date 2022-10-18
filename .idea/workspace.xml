@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe0fe470-5a5b-4cd9-b858-726c6c8e83c0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/UI/Card.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/AddUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserForm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/AddUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/AddUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,23 +36,11 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="add-users-app" />
-                    <option name="lastUsedInstant" value="1665756168" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1665755956" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="debuggin-react-apps" />
-                    <option name="lastUsedInstant" value="1664364584" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="styling-react-components" />
-                    <option name="lastUsedInstant" value="1664358589" />
+                    <option name="lastUsedInstant" value="1666089065" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="expenses-app" />
-                    <option name="lastUsedInstant" value="1664295710" />
+                    <option name="lastUsedInstant" value="1666089064" />
                   </RecentBranch>
                 </list>
               </option>
