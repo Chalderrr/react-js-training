@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import AddUser from './components/Users/AddUser';
-import UserList from './components/UserList';
+import UserList from './components/Users/UserList';
 
 function App() {
+    const [usersList, setUsersList] = useState([]);
+
     return (
         <div>
-            <AddUser />
-            <UserList />
+            <AddUser onAddUser={}/>
+            <UserList users={usersList}/>
         </div>
     );
 }

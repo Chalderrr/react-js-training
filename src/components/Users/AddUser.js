@@ -38,7 +38,7 @@ const AddUser = (props) => {
     };
 
     return (
-        <Card className="bg-white shadow-md rounded-lg p-4 my-8 mx-auto max-w-2xl w-[90%]">
+        <Card>
             <form onSubmit={addUserHandler}>
                 <label htmlFor="username" className="block mb-2 font-bold">
                     Username
