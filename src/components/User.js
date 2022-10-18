@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const User = (props) => {
     return <div>Name (age years old)</div>;

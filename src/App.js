@@ -1,11 +1,11 @@
 import React from 'react';
+import AddUser from './components/Users/AddUser';
 import UserList from './components/UserList';
-import UserForm from './components/UserForm';
 
 function App() {
     return (
         <div>
-            <UserForm />
+            <AddUser />
             <UserList />
         </div>
     );
