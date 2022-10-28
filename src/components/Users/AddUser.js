@@ -11,6 +11,7 @@ const AddUser = (props) => {
     const addUserHandler = (event) => {
         event.preventDefault();
 
+        // If both username and age have length equaling zero, set the setError sate to the passed object
         if (
             enteredUsername.trim().length === 0 ||
             enteredAge.trim().length === 0
@@ -21,6 +22,8 @@ const AddUser = (props) => {
             });
             return;
         }
+
+        // If the age is less than 1, set the setError sate to the passed object
         if (+enteredAge < 1) {
             setError({
                 title: 'Invalid age',
@@ -30,17 +33,21 @@ const AddUser = (props) => {
             return;
         }
 
+        // pass enteredUsername and enteredAge to the onAddUser callback
         props.onAddUser(enteredUsername, enteredAge);
+
+        // Reset username and age back to empty once submitted
         setEnteredUsername('');
         setEnteredAge('');
     };
 
+    // If our username has a length greater than 0 set the state of setEnteredUsername() to the value
     const usernameChangeHandler = (event) => {
         if (event.target.value.length > 0) {
             setEnteredUsername(event.target.value);
         }
     };
-
+    // If our age has a length greater than 0 set the state of setEnteredAge() to the value
     const ageChangeHandler = (event) => {
         if (event.target.value.length > 0) {
             setEnteredAge(event.target.value);
@@ -53,6 +60,7 @@ const AddUser = (props) => {
 
     return (
         <div>
+            {/*Checking the error exists and is not null before rendering it*/}
             {error && (
                 <ErrorModal
                     title={error.title}
