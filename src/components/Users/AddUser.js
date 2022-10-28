@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Card from '../UI/Card';
 import Button from '../UI/Button';
 import ErrorModal from '../UI/ErrorModal';
+import Wrapper from '../Helpers/Wrapper';
 
 const AddUser = (props) => {
     const [enteredUsername, setEnteredUsername] = useState('');
@@ -59,7 +60,7 @@ const AddUser = (props) => {
     };
 
     return (
-        <div>
+        <Wrapper>
             {/*Checking the error exists and is not null before rendering it*/}
             {error && (
                 <ErrorModal
@@ -101,7 +102,7 @@ const AddUser = (props) => {
                     </Button>
                 </form>
             </Card>
-        </div>
+        </Wrapper>
     );
 };
 
