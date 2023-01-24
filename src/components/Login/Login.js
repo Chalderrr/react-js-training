@@ -13,7 +13,7 @@ const Login = (props) => {
 
     useEffect(() => {
         // Assign setTimeout to a function that can be returned with a clearTimeout();
-        // This prevents the useEffect from endlessly running the setFormIsValid handler
+        // This prevents the useEffect from endlessly running the setFormIsValid handler when the state is updated
         // Which in turn reduces a large amount of HTTP requests
         const identifier = setTimeout(() => {
             console.log('Checking for validity!');
