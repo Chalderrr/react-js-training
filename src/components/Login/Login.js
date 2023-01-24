@@ -47,6 +47,11 @@ const Login = (props) => {
         isValid: false,
     });
 
+    // Use alias variables to be used in useEffect,
+    // prevents unnecessary useEffect execution
+    const { isValid: emailIsValid } = emailState;
+    const { isValid: passwordIsValid } = passwordState;
+
     useEffect(() => {
         // Assign setTimeout to a function that can be returned with a clearTimeout();
         // This prevents the useEffect from endlessly running the setFormIsValid handler when the state is updated
@@ -54,13 +59,13 @@ const Login = (props) => {
         const identifier = setTimeout(() => {
             console.log('Checking for validity!');
         }, 500);
-        setFormIsValid(emailState.isValid && passwordState.isValid);
+        setFormIsValid(emailIsValid && passwordIsValid);
 
         return () => {
             console.log('clearing...');
             clearTimeout(identifier);
         };
-    }, [emailState, passwordState]); // Set dependency functions that need re-evaluating, if they change, then the useEffect will re-run
+    }, [emailIsValid, passwordIsValid]); // Set dependency functions that need re-evaluating, if they change, then the useEffect will re-run
 
     const emailChangeHandler = (event) => {
         // setEnteredEmail(event.target.value);
