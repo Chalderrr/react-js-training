@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Card from '../UI/Card';
 import Button from '../UI/Button';
 import ErrorModal from '../UI/ErrorModal';
 import Wrapper from '../Helpers/Wrapper';
 
 const AddUser = (props) => {
-    const [enteredUsername, setEnteredUsername] = useState('');
-    const [enteredAge, setEnteredAge] = useState('');
+    const nameInputRef = useRef();
+    const ageInputRef = useRef();
+
     const [error, setError] = useState();
 
     const addUserHandler = (event) => {
         event.preventDefault();
 
+        const enteredName = nameInputRef.current.value;
+        const enteredUserAge = ageInputRef.current.value;
         // If both username and age have length equaling zero, set the setError sate to the passed object
         if (
-            enteredUsername.trim().length === 0 ||
-            enteredAge.trim().length === 0
+            enteredName.trim().length === 0 ||
+            enteredUserAge.trim().length === 0
         ) {
             setError({
                 title: 'Invalid input',
@@ -24,8 +27,8 @@ const AddUser = (props) => {
             return;
         }
 
-        // If the age is less than 1, set the setError sate to the passed object
-        if (+enteredAge < 1) {
+        // If the age is less than 1, set the setError state to the passed object
+        if (+enteredUserAge < 1) {
             setError({
                 title: 'Invalid age',
                 message: 'Please enter a valid age',
@@ -35,24 +38,7 @@ const AddUser = (props) => {
         }
 
         // pass enteredUsername and enteredAge to the onAddUser callback
-        props.onAddUser(enteredUsername, enteredAge);
-
-        // Reset username and age back to empty once submitted
-        setEnteredUsername('');
-        setEnteredAge('');
-    };
-
-    // If our username has a length greater than 0 set the state of setEnteredUsername() to the value
-    const usernameChangeHandler = (event) => {
-        if (event.target.value.length > 0) {
-            setEnteredUsername(event.target.value);
-        }
-    };
-    // If our age has a length greater than 0 set the state of setEnteredAge() to the value
-    const ageChangeHandler = (event) => {
-        if (event.target.value.length > 0) {
-            setEnteredAge(event.target.value);
-        }
+        props.onAddUser(enteredName, enteredUserAge);
     };
 
     const errorHandler = () => {
@@ -79,9 +65,8 @@ const AddUser = (props) => {
                         type="text"
                         id="username"
                         name="name"
-                        value={enteredUsername}
                         className="block w-full border border-[#cccccc] focus:border-[#4f005f] mb-3"
-                        onChange={usernameChangeHandler}
+                        ref={nameInputRef}
                     />
                     <label htmlFor="age" className="block mb-2 font-bold">
                         Age (Years)
@@ -90,9 +75,8 @@ const AddUser = (props) => {
                         type="number"
                         id="age"
                         name="age"
-                        value={enteredAge}
                         className="block w-full border border-[#cccccc] focus:border-[#4f005f] mb-3"
-                        onChange={ageChangeHandler}
+                        ref={ageInputRef}
                     />
                     <Button
                         type="submit"
