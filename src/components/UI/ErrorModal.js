@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import Button from './Button';
 
@@ -36,7 +37,22 @@ const ModalOverlay = (props) => {
 };
 
 const ErrorModal = (props) => {
-    return <React.Fragment>{}</React.Fragment>;
+    return (
+        <React.Fragment>
+            {ReactDOM.createPortal(
+                <Backdrop onReset={props.onReset} />,
+                document.getElementById('backdrop-root')
+            )}
+            {ReactDOM.createPortal(
+                <ModalOverlay
+                    title={props.title}
+                    message={props.message}
+                    onReset={props.onReset}
+                />,
+                document.getElementById('overlay-root')
+            )}
+        </React.Fragment>
+    );
 };
 
 export default ErrorModal;
