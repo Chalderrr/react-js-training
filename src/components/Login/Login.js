@@ -12,9 +12,20 @@ const Login = (props) => {
     const [formIsValid, setFormIsValid] = useState(false);
 
     useEffect(() => {
+        // Assign setTimeout to a function that can be returned with a clearTimeout();
+        // This prevents the useEffect from endlessly running the setFormIsValid handler
+        // Which in turn reduces a large amount of HTTP requests
+        const identifier = setTimeout(() => {
+            console.log('Checking for validity!');
+        }, 500);
         setFormIsValid(
             enteredEmail.includes('@') && enteredPassword.trim().length > 6
         );
+
+        return () => {
+            console.log('clearing...');
+            clearTimeout(identifier);
+        };
     }, [enteredEmail, enteredPassword]); // Set dependency functions that need re-evaluating, if they change, then the useEffect will re-run
 
     const emailChangeHandler = (event) => {
