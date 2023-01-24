@@ -39,6 +39,10 @@ const AddUser = (props) => {
 
         // pass enteredUsername and enteredAge to the onAddUser callback
         props.onAddUser(enteredName, enteredUserAge);
+
+        // This is generally bad but it is allowed in this context, we shouldn't reset values with Refs
+        nameInputRef.current.value = '';
+        ageInputRef.current.value = '';
     };
 
     const errorHandler = () => {
