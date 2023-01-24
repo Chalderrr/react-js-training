@@ -63,6 +63,7 @@ const AddUser = (props) => {
         <Wrapper>
             {/*Checking the error exists and is not null before rendering it*/}
             {error && (
+                // This does not get rendered inside Wrapper component, it now renders in specified React.Fragments
                 <ErrorModal
                     title={error.title}
                     message={error.message}
