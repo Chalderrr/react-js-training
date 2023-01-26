@@ -32,8 +32,10 @@ const DUMMY_MEALS = [
 ];
 
 const AvailableMeals = () => {
+    // Iterating over the meals in the DUMMY_MEALS array and creating a new MealItem component for each meal.
     const mealsList = DUMMY_MEALS.map((meal) => (
         <MealItem
+            // passing the meal's id, name, description, and price to the MealItem component as props
             id={meal.id}
             key={meal.id}
             name={meal.name}
@@ -42,6 +44,7 @@ const AvailableMeals = () => {
         />
     ));
 
+    // returning a section element with class "meals" which contains a Card component and a ul element containing the mealsList
     return (
         <section className={classes.meals}>
             <Card>

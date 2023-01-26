@@ -9,12 +9,21 @@ import CartItem from './CartItem';
 const Cart = (props) => {
     const cartCtx = useContext(CartContext);
 
+    //totalAmount variable holds the total amount of all items in the cart
     const totalAmount = `£${cartCtx.totalAmount.toFixed(2)}`;
+    // hasItems variable holds a boolean indicating whether the cart has any items or not
     const hasItems = cartCtx.items.length > 0;
 
-    const cartItemRemoveHandler = (id) => {};
-    const cartItemAddHandler = (item) => {};
+    //remove item from cart
+    const cartItemRemoveHandler = (id) => {
+        cartCtx.removeItem(id);
+    };
+    //add item to cart
+    const cartItemAddHandler = (item) => {
+        cartCtx.addItem({ ...item, amount: 1 });
+    };
 
+    //generating list of cart items
     const cartItems = (
         <ul className={classes['cart-items']}>
             {cartCtx.items.map((item) => (
@@ -27,8 +36,10 @@ const Cart = (props) => {
                     onAdd={cartItemAddHandler.bind(null, item)}
                 />
             ))}
+            {cartCtx.items.length === 0 && <p>The cart is empty!</p>}
         </ul>
     );
+    //rendering modal with cart items and total amount
     return (
         <Modal onClose={props.onClose}>
             {cartItems}

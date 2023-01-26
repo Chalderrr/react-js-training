@@ -5,10 +5,13 @@ import MealItemForm from './MealItemForm';
 import CartContext from '../../../store/cart-context';
 
 const MealItem = (props) => {
+    // useContext hook to access the CartContext
     const cartCtx = useContext(CartContext);
 
+    // format the price as a string with a £ symbol and 2 decimal places
     const price = `£${props.price.toFixed(2)}`;
 
+    // function that adds the meal to the cart using the addItem function from the CartContext
     const addToCartHandler = (amount) => {
         cartCtx.addItem({
             id: props.id,
